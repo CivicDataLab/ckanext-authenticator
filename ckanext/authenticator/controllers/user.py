@@ -1,6 +1,6 @@
 import logging
 
-from ckan.common import config
+#from ckan.common import config
 from paste.deploy.converters import asbool
 from six import text_type
 
