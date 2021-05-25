@@ -1,14 +1,3 @@
-import ckanext.emailauth.actions.create as create
-import ckanext.emailauth.actions.get as get
-import ckanext.emailauth.actions.update as update
-import ckanext.emailauth.actions.auth as auth
-import ckanext.emailauth.logic.register_auth as authorize
-import ckanext.emailauth.logic.validators as validators
-import ckanext.emailauth.model as users_model
-import ckanext.emailauth.user_extra_model as user_extra_model
-from ckanext.emailauth import blueprint
-from ckanext.emailauth.settings import BLUEPRINT, IS_FLASK_REQUEST
-
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from pylons import config
@@ -56,6 +45,4 @@ class AutheticatorPlugin(plugins.SingletonPlugin):
 
     def get_validators(self):
         return {
-            u'user_email_validator': validators.user_email_validator,
-            u'user_name_validator': validators.user_name_validator
         }
