@@ -3,6 +3,7 @@ from zope.interface import implementer
 from repoze.who.interfaces import IAuthenticator
 from ckan.model import User
 import ckan.plugins as plugins
+from pylons import config
 
 log = logging.getLogger(__name__)
 
@@ -17,7 +18,7 @@ class CustomAuthenticator(object):
         login = identity['login']
         user = User.by_name(login)
 
-        is_email = plugins.toolkit.config.get('ckan.authenticator.email', '').strip().lower() == 'true'
+        is_email = config.get('ckan.authenticator.email', '').strip().lower() == 'true'
 
         if user is None and is_email:
             users = User.by_email(login)
